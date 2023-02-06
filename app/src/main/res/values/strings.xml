@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ShopList</string>
+    <string name="app_name">Список покупок</string>
+    <string name="one">1</string>
+    <string name="name">Название</string>
+    <string name="count">Количество</string>
+    <string name="save">Сохранить</string>
+    <string name="invalid_count">Неверное количество</string>
+    <string name="add_new_shop_item">Add new shop item</string>
 </resources>
