@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="italic"/>
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/tv_count"
