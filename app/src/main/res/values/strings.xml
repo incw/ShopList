@@ -6,5 +6,6 @@
     <string name="save">Сохранить</string>
     <string name="error_invalid_count">Неверное количество</string>
     <string name="error_invalid_name">Неверное название</string>
-    <string name="add_new_shop_item">Add new shop item</string>
+    <string name="add_new_shop_item">Добавить новую покупку</string>
+
 </resources>

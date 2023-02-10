@@ -101,4 +101,5 @@ class ShopItemViewModel : ViewModel() {
     private fun finishWork() {
         _msgOfCloseScreen.value = Unit
     }
+
 }
