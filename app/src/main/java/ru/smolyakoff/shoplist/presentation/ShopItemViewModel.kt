@@ -1,10 +1,10 @@
 package ru.smolyakoff.shoplist.presentation
 
 import android.app.Application
-import androidx.lifecycle.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.smolyakoff.shoplist.data.ShopListRepositoryImpl
 import ru.smolyakoff.shoplist.domain.AddShopItemUseCase
@@ -19,8 +19,6 @@ class ShopItemViewModel(application: Application) : AndroidViewModel(application
     private val getShopItemUseCase = GetShopItemUseCase(repository)
     private val addShopItemUseCase = AddShopItemUseCase(repository)
     private val editShopItemUseCase = EditShopItemUseCase(repository)
-
-
 
 
     private val _errorInputName = MutableLiveData<Boolean>()
@@ -66,16 +64,17 @@ class ShopItemViewModel(application: Application) : AndroidViewModel(application
         val name = parseName(inputName)
         val count = parseCount(inputCount)
         val fieldsValid = validateInput(name, count)
-            if (fieldsValid) {
-                _shopItem.value?.let {
-                    viewModelScope.launch {
-                        val item = it.copy(name = name, count = count)
-                        editShopItemUseCase.editShopList(item)
-                        finishWork()
-                    }
 
+        if (fieldsValid) {
+            _shopItem.value?.let {
+                viewModelScope.launch {
+                    val item = it.copy(name = name, count = count)
+                    editShopItemUseCase.editShopList(item)
+                    finishWork()
                 }
+
             }
+        }
 
     }
 
@@ -105,16 +104,16 @@ class ShopItemViewModel(application: Application) : AndroidViewModel(application
         return result
     }
 
-     fun dropErrorInputName() {
+    fun dropErrorInputName() {
         _errorInputName.value = false
     }
 
-     fun dropErrorInputCount() {
+    fun dropErrorInputCount() {
         _errorInputCount.value = false
     }
 
     private fun finishWork() {
         _msgOfCloseScreen.value = Unit
     }
-    
+
 }
