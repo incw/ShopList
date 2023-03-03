@@ -5,19 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.smolyakoff.shoplist.R
+import ru.smolyakoff.shoplist.databinding.ActivityShopItemBinding
 import ru.smolyakoff.shoplist.domain.ShopItem
 
 class ShopItemActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListener {
 
+
+    private lateinit var binding: ActivityShopItemBinding
 
     private var screenMode = MODE_UNKNOWN
 
     private var shopItemID = ShopItem.UNDEFINED_ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityShopItemBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shop_item)
+        setContentView(binding.root)
         parseIntent()
 
         if (savedInstanceState == null){
