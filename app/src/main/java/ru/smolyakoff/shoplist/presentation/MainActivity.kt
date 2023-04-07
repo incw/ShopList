@@ -1,14 +1,12 @@
 package ru.smolyakoff.shoplist.presentation
 
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.smolyakoff.shoplist.R
 import ru.smolyakoff.shoplist.databinding.ActivityMainBinding
 
@@ -30,17 +28,14 @@ class MainActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListene
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
-
+        setColorAddButton()
         setupRecyclerView()
 
-
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-
 
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
         }
-
 
         binding.buttonAddShopItem.setOnClickListener {
             if (paneMode()) {
@@ -53,6 +48,9 @@ class MainActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListene
         }
 
     }
+
+
+
 
     private fun setupRecyclerView() {
 
@@ -136,5 +134,11 @@ class MainActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListene
             .replace(R.id.shop_item_container, fragment)
             .addToBackStack(null)
             .commit()
+    }
+    private fun setColorAddButton(){
+        binding.buttonAddShopItem.setColorFilter(Color.argb(255, 255, 255, 255))
+    }
+    companion object{
+        const val UNIT_ID = "demo-banner-yandex"
     }
 }

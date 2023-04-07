@@ -7,12 +7,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.textfield.TextInputLayout
-import ru.smolyakoff.shoplist.R
 import ru.smolyakoff.shoplist.databinding.FragmentShopItemBinding
 import ru.smolyakoff.shoplist.domain.ShopItem
 
@@ -73,6 +69,7 @@ class ShopItemFragment : Fragment() {
             MODE_ADD -> launchAddMode()
         }
     }
+
 
     private fun observeViewModel() {
         viewModel.msgOfCloseScreen.observe(viewLifecycleOwner) {

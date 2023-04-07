@@ -2,12 +2,9 @@ package ru.smolyakoff.shoplist.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import ru.smolyakoff.shoplist.domain.ShopItem
 import ru.smolyakoff.shoplist.domain.ShopListRepository
-import kotlin.random.Random
 
 class ShopListRepositoryImpl(
     application: Application
