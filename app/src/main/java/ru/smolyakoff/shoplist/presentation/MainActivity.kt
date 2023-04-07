@@ -33,7 +33,10 @@ class MainActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListene
 
         setupRecyclerView()
 
+
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
         }
@@ -114,7 +117,6 @@ class MainActivity : AppCompatActivity(),ShopItemFragment.OnEditingFinishListene
     }
 
     override fun onEditingFinish(){
-        Toast.makeText(this@MainActivity,"OK",Toast.LENGTH_SHORT).show()
         supportFragmentManager.popBackStack()
     }
 

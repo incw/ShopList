@@ -43,7 +43,6 @@ class ShopItemViewModel(application: Application) : AndroidViewModel(application
             val item = getShopItemUseCase.getShopItem(shopItemId)
             _shopItem.value = item
         }
-
     }
 
     fun addShopItem(inputName: String?, inputCount: String?) {

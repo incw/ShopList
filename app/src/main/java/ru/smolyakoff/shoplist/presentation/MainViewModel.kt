@@ -30,7 +30,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             deleteShopItemUseCase.deleteShopList(shopItem)
         }
-
     }
 
     fun changeEnableState(shopItem: ShopItem) {

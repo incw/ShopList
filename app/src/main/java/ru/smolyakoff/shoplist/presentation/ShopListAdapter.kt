@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.ListAdapter
 import ru.smolyakoff.shoplist.R
 import ru.smolyakoff.shoplist.databinding.ItemShopDisabledBinding
 import ru.smolyakoff.shoplist.databinding.ItemShopEnabledBinding
 import ru.smolyakoff.shoplist.domain.ShopItem
 
-class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(
+class ShopListAdapter : androidx.recyclerview.widget.ListAdapter<ShopItem, ShopItemViewHolder>(
     ShopItemDiffCallback()
 ) {
 
@@ -57,7 +56,6 @@ class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(
                 binding.tvCount.text = shopItem.count.toString()
             }
         }
-
 
     }
 
